@@ -1,1 +1,1 @@
-HelloWorldMicroservice.jar
+kumo-margarita-0.1.0.jar
