@@ -4,6 +4,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+        classpath("se.transmode.gradle:gradle-docker:1.2")
     }
 }
 
@@ -11,9 +12,10 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'docker'
 
 jar {
-    baseName = 'gs-spring-boot'
+    baseName = 'kumo-margarita'
     version =  '0.1.0'
 }
 
@@ -34,3 +36,16 @@ dependencies {
     // end::tests[]
 }
 
+group = 'gcr.io/kumo-scratch'
+
+task buildDocker(type: Docker, dependsOn: build) {
+    applicationName = 'kumo-margarita'
+    tagVersion = '0.1.0'
+    dockerfile = file('Dockerfile')
+    doFirst {
+        copy {
+            from jar
+            into "${stageDir}/target"
+        }
+    }
+}
