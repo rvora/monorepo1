@@ -7,20 +7,20 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'env'
-                ./mvnw compile
+                sh './mvnw compile'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
                 sh 'env'
-                ./mvnw test
+                sh './mvnw test'
             }
         }
         stage('Package') {
             steps {
                 echo 'Deploying....'
-                ./mvnw package
+                sh './mvnw package'
             }
         }
     }
