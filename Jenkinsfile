@@ -1,3 +1,4 @@
+def servicename = 'servicesample-springboot-java'
 pipeline {
     agent any
 
@@ -20,7 +21,15 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 ./mvnw package
-                ./mvnw dockerfile:build -Dgit.tag=env.GIT_COMMIT
+            }
+        stage('BuildPushImage') {
+            steps {
+                echo 'Building and Pushing image....'
+                
+                docker.withRegistry('https://gcr.io', 'kumo-scratch') {
+                    def customImage = docker.build("$servicename:${env.COMMIT_TAG}")
+                    customImage.push()
+                }
             }
         }
     }
