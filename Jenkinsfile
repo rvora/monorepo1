@@ -22,14 +22,6 @@ pipeline {
                 echo 'Deploying....'
                 ./mvnw package
             }
-        stage('BuildPushImage') {
-            steps {
-                echo 'Building and Pushing image....'
-                docker.withRegistry('https://gcr.io', 'kumo-scratch') {
-                    def customImage = docker.build("$servicename:${env.COMMIT_TAG}")
-                    customImage.push()
-                }
-            }
         }
     }
 }
