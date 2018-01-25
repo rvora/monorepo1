@@ -9,7 +9,7 @@
     <properties>
         <java.version>1.8</java.version>
         <docker.image.prefix>gcr.io/kumo-scratch</docker.image.prefix>
-        <git.tag>SNAPSHOT</my.variable>
+        <git.tag>SNAPSHOT</git.tag>
     </properties>
 
 
