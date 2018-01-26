@@ -35,8 +35,9 @@ pipeline {
         stage('Docker Push') {
             steps {
                 echo 'Docker Push....'
-                sh("gcloud auth activate-service-account --key-file ${project}.json" && gcloud docker -- push ${imageTag; gcloud auth revoke")
+               sh "gcloud docker -- push ${imageTag"
             }
         }
     }
 }
+               /* sh("gcloud auth activate-service-account --key-file ${project}.json && gcloud docker -- push ${imageTag; gcloud auth revoke") */
