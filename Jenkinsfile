@@ -35,7 +35,7 @@ pipeline {
         stage('Docker Push') {
             steps {
                 echo 'Docker Push....'
-                sh "gcloud docker -- push ${imageTag}"
+                sh "gcloud docker -- push ${imagetag}"
             }
         }
     }
