@@ -7,7 +7,6 @@ def servicename = 'servicesample-springboot-java'
   def imagetag = "gcr.io/${project}/${servicename}:${commitHash}"
 
 
-    stages {
         stage('Build') {
             steps {
                 echo 'Building..'
@@ -40,5 +39,4 @@ def servicename = 'servicesample-springboot-java'
                 sh "gcloud docker -- push ${imagetag}"
             }
         }
-    }
   }
