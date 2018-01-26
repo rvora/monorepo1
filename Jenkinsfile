@@ -1,11 +1,14 @@
 def project = 'kumo-scratch'
 def servicename = 'servicesample-springboot-java'
-def imagetag = "gcr.io/${project}/${servicename}:${env.GIT_COMMIT}"
 
 pipeline {
     agent any
 
     stages {
+        stage('Checkout') {
+          def commitHash = checkout(scm).GIT_COMMIT
+          def imagetag = "gcr.io/${project}/${servicename}:${commitHash}"
+        }
         stage('Build') {
             steps {
                 echo 'Building..'
