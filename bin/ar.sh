@@ -7,6 +7,6 @@ PREFIX=<%= prefix %>
 VERSION=<%= version %>
 
 #logger -t ${NAME}-rpm-ar "Name: $NAME, Prefix: $PREFIX, Version: $VERSION"
-rm -f /etc/init.d/helloworld
+# rm -f /etc/init.d/helloworld
 
 exit 0
