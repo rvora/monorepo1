@@ -1,2 +1,0 @@
-export KUMO_VERSION=1.0
-export COMPONENT_VERSION=0.2
