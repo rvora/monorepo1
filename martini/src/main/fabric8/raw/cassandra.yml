@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: cassandra-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cassandra
+  template:
+    metadata:
+      labels:
+        app: cassandra
+    spec:
+      containers:
+      - image: cassandra
+        name: cassandra
+        ports:
+        - name: cassandra
+          containerPort: 9042
+        volumeMounts:
+            - name: cassandra-data
+              mountPath: /cassandra-data
+      volumes:
+        - name: cassandra-data
