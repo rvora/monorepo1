@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: redis-deployment
+  name: martini-redis-deployment
 spec:
   replicas: 1
   selector:

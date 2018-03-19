@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: cassandra-deployment
+  name: martini-cassandra-deployment
 spec:
   replicas: 1
   selector:
