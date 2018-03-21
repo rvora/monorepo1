@@ -4,12 +4,10 @@ pipeline:
     image: 3.5.3-jdk-8
     commands:
       - cd margarita
-      - mvn clean
-      - mvn fabric8:build
+      - ./mvnw package fabric8:resource fabric8:build
   martini:
     group: martini
     image: 3.5.3-jdk-8
     commands:
       - cd martini
-      - mvn clean
-      - mvn fabric8:build
+      - ./mvnw package fabric8:resource fabric8:build
