@@ -8,4 +8,12 @@ pipeline:
     volumes:
       - /var/cache/.m2:/root/.m2
       - /var/run/docker.sock:/var/run/docker.sock
-
+  martini:
+    group: martini
+    image: maven:3.5.3-jdk-8
+    commands:
+      - cd martini
+      - mvn package fabric8:resource fabric8:build
+    volumes:
+      - /var/cache/.m2:/root/.m2
+      - /var/run/docker.sock:/var/run/docker.sock
