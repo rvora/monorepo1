@@ -15,3 +15,4 @@ pipeline:
       - ./mvnw package fabric8:resource fabric8:build
     volumes:
       - /var/cache/.m2:/root/.m2
+
